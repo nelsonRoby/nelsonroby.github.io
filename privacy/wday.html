@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WDay Privacy Policy</title>
+<meta name="description" content="WDay privacy policy available in English, 简体中文 and 日本語.">
+<meta name="color-scheme" content="light dark">
+<script>
+try {
+  var savedTheme = localStorage.getItem('wday:theme');
+  var urlTheme = new URLSearchParams(location.search).get('theme');
+  var dark = urlTheme === 'dark' ||
+    (!urlTheme && (savedTheme === 'dark' ||
+    (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)));
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+} catch (e) {
+  document.documentElement.dataset.theme = 'light';
+}
+</script>
+<style>
+:root {
+  --bg: #f2f6fb;
+  --bg-glow: rgba(13,107,216,.10);
+  --surface: #ffffff;
+  --surface-2: #eef4fb;
+  --text: #152235;
+  --muted: #54657d;
+  --border: #d9e4f0;
+  --accent: #0d6bd8;
+  --on-accent: #ffffff;
+  --accent-soft: #e3effd;
+  --header-bg: rgba(255,255,255,.85);
+  --shadow: 0 1px 2px rgba(16,42,72,.06), 0 10px 30px rgba(16,42,72,.10);
+  --radius: 14px;
+}
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --bg-glow: rgba(89,152,255,.14);
+  --surface: #121c2c;
+  --surface-2: #19253a;
+  --text: #e6edf7;
+  --muted: #9db0c7;
+  --border: #243349;
+  --accent: #69adff;
+  --on-accent: #0a1a2f;
+  --accent-soft: #172942;
+  --header-bg: rgba(11,18,32,.82);
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.45);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg: #0b1220; --surface: #121c2c; --surface-2: #19253a; --text: #e6edf7;
+    --muted: #9db0c7; --border: #243349; --accent: #69adff; --on-accent: #0a1a2f;
+    --accent-soft: #172942; --header-bg: rgba(11,18,32,.82);
+    --bg-glow: rgba(89,152,255,.14);
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.45);
+  }
+}
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
+    'Helvetica Neue', Arial, 'Hiragino Sans', 'Noto Sans SC', 'Microsoft YaHei',
+    'Noto Sans JP', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: clamp(15px, .92rem + .25vw, 17px);
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--bg);
+  background-image: radial-gradient(1100px 380px at 85% -160px, var(--bg-glow), transparent);
+  background-repeat: no-repeat;
+}
+a { color: var(--accent); text-decoration-thickness: .06em; text-underline-offset: .18em; }
+a:hover { text-decoration-thickness: .12em; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--accent-soft); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--header-bg);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  max-width: 1120px; margin: 0 auto;
+  padding: .65rem clamp(.9rem, 3.5vw, 1.4rem);
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem; flex-wrap: wrap;
+}
+.brand { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1.08rem; color: var(--text); text-decoration: none; letter-spacing: .01em; }
+.brand svg { color: var(--accent); flex: none; }
+.controls { display: flex; align-items: center; gap: .5rem; }
+.lang-switch {
+  display: inline-flex; padding: 3px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border);
+}
+.lang-switch button {
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  font: inherit; font-size: .86rem; color: var(--muted);
+  padding: .38rem clamp(.6rem, 2.4vw, .85rem); border-radius: 999px;
+  min-height: 34px; white-space: nowrap;
+}
+.lang-switch button[aria-pressed="true"] {
+  background: var(--accent); color: var(--on-accent); font-weight: 600;
+  box-shadow: 0 1px 3px rgba(13,107,216,.35);
+}
+.icon-btn {
+  appearance: none; cursor: pointer; width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.icon-btn:hover { border-color: var(--accent); }
+.icon-btn .icon-sun { display: none; }
+.icon-btn .icon-moon { display: block; }
+[data-theme="dark"] .icon-btn .icon-sun { display: block; }
+[data-theme="dark"] .icon-btn .icon-moon { display: none; }
+
+main {
+  max-width: 1120px; margin: 0 auto;
+  padding: clamp(1.4rem, 4.5vw, 2.6rem) clamp(.9rem, 4vw, 1.5rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+.prose-head { max-width: 76ch; }
+.eyebrow { margin: 0; color: var(--accent); font-weight: 700; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: .35rem 0 .5rem; font-size: clamp(1.75rem, 1.25rem + 2.4vw, 2.6rem); line-height: 1.22; letter-spacing: -.01em; }
+.updated { margin: 0 0 1rem; color: var(--muted); font-size: .92rem; }
+.lead { font-size: clamp(1rem, .95rem + .3vw, 1.12rem); color: var(--muted); margin: 0 0 1.2rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 .5rem; }
+.chip {
+  font-size: .83rem; font-weight: 600; padding: .34rem .8rem; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  box-shadow: 0 1px 2px rgba(16,42,72,.05);
+}
+
+.toc {
+  margin: 1.6rem 0; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); box-shadow: var(--shadow); overflow: hidden;
+}
+.toc summary {
+  cursor: pointer; list-style: none; padding: .85rem 1.1rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after { content: '+'; font-size: 1.25rem; color: var(--accent); font-weight: 400; }
+.toc[open] summary::after { content: '−'; }
+.toc-list { list-style: none; margin: 0; padding: .2rem 1.1rem 1rem; counter-reset: toc; }
+.toc-list li { counter-increment: toc; margin: 0; }
+.toc-list a {
+  display: block; padding: .42rem 0 .42rem 2rem; color: var(--muted);
+  text-decoration: none; font-size: .92rem; border-left: 2px solid var(--border);
+  margin-left: .55rem;
+}
+.toc-list a::before { content: counter(toc); display: inline-block; width: 1.4rem; margin-left: -2rem; color: var(--accent); font-weight: 600; }
+.toc-list a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+.content { min-width: 0; }
+article.locale[hidden] { display: none; }
+@media (min-width: 1024px) {
+  article.locale:not([hidden]) {
+    display: grid;
+    grid-template-columns: minmax(200px, 236px) minmax(0, 72ch);
+    column-gap: clamp(28px, 4vw, 64px);
+    justify-content: center;
+  }
+  .prose-head { grid-column: 1 / -1; }
+  .toc {
+    grid-column: 1; margin: 0; border: 0; background: transparent; box-shadow: none;
+    position: sticky; top: 96px; align-self: start; overflow: visible;
+  }
+  .toc summary { display: none; }
+  .toc-list { padding: 0; }
+  .content { grid-column: 2; }
+}
+
+h2 {
+  margin: 2.6rem 0 .8rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: clamp(1.2rem, 1.08rem + .45vw, 1.45rem); line-height: 1.35;
+}
+h2:first-of-type { margin-top: 1.2rem; padding-top: 0; border-top: 0; }
+p { margin: .7rem 0; }
+ul { margin: .7rem 0; padding-left: 1.35rem; }
+li { margin: .55rem 0; }
+strong { color: var(--text); }
+code {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, 'Noto Sans Mono', monospace;
+  font-size: .86em; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 5px; padding: .08em .42em; overflow-wrap: anywhere; word-break: break-word;
+}
+.contact-box {
+  margin-top: 2.2rem; padding: 1.1rem 1.3rem;
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 12px; background: var(--surface); box-shadow: var(--shadow);
+}
+.contact-box p:last-child { margin-bottom: 0; }
+
+.site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+.footer-inner {
+  max-width: 1120px; margin: 0 auto; padding: 1.5rem 1.2rem;
+  text-align: center; color: var(--muted); font-size: .9rem;
+}
+.footer-inner p { margin: .25rem 0; }
+.footer-inner[hidden] { display: none; }
+
+.to-top {
+  position: fixed; right: clamp(12px, 3vw, 28px); bottom: clamp(12px, 3vw, 28px);
+  width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--surface); color: var(--accent); font-size: 1.25rem; line-height: 1;
+  cursor: pointer; box-shadow: var(--shadow); z-index: 60;
+  opacity: 0; transform: translateY(10px); pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.noscript-note { max-width: 1120px; margin: .8rem auto 0; padding: 0 1.2rem; color: var(--muted); font-size: .88rem; }
+
+@media (max-width: 480px) {
+  .brand span { font-size: 1rem; }
+  .lang-switch button { padding: .34rem .55rem; min-height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .to-top { transition: none; }
+}
+@media print {
+  .site-header, .toc, .to-top, .chips { display: none !important; }
+  body { background: #fff; color: #000; }
+  main { max-width: none; padding: 0; }
+  .contact-box, .chip { box-shadow: none; }
+}
+</style>
+</head>
+<body id="top">
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 18.5a4.2 4.2 0 0 1-.6-8.36A5.6 5.6 0 0 1 17.2 8.6a3.85 3.85 0 0 1-.4 7.6H7Z" fill="currentColor"/>
+        <path d="M8 6.5 8.8 8M4.5 9.5 6 10.2M19 6l-1 1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span>WDay</span>
+    </a>
+    <div class="controls">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+      </div>
+      <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20.2 14.6A8.2 8.2 0 0 1 9.4 3.8 8.2 8.2 0 1 0 20.2 14.6Z" fill="currentColor"/>
+        </svg>
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" fill="currentColor"/>
+          <path d="M12 2.8v2.2M12 19v2.2M2.8 12H5M19 12h2.2M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M19.1 4.9l-1.6 1.6M6.5 17.5l-1.6 1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+<article class="locale" data-locale="en" lang="en">
+  <div class="prose-head">
+    <p class="eyebrow">WDay Weather</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: October 27, 2026</p>
+    <p class="lead">This Privacy Policy describes how WDay (&ldquo;the App&rdquo;) handles information when you use it. The App is designed to collect as little data as possible: no account is required, there are no advertising or tracking SDKs, and we do not operate a server-side database that stores personal information.</p>
+    <div class="chips">
+      <span class="chip">No account required</span>
+      <span class="chip">No ads or trackers</span>
+      <span class="chip">Location is optional</span>
+      <span class="chip">Data stored on your device</span>
+    </div>
+  </div>
+  <details class="toc" open>
+    <summary>Contents</summary>
+    <ol class="toc-list">
+      <li><a href="#en-1">Information We Collect</a></li>
+      <li><a href="#en-2">How We Use Information</a></li>
+      <li><a href="#en-3">How Information Is Shared</a></li>
+      <li><a href="#en-4">Data Storage and Security</a></li>
+      <li><a href="#en-5">Data Deletion</a></li>
+      <li><a href="#en-6">Children&rsquo;s Privacy</a></li>
+      <li><a href="#en-7">Changes to This Policy</a></li>
+      <li><a href="#en-8">Contact Us</a></li>
+    </ol>
+  </details>
+  <div class="content">
+    <h2 id="en-1">1. Information We Collect</h2>
+    <p>While you use the App, the following information may be involved:</p>
+    <ul>
+      <li><strong>Location information (optional).</strong> Only when you tap &ldquo;Locate current city&rdquo; does the App request foreground location permissions (<code>ACCESS_COARSE_LOCATION</code> / <code>ACCESS_FINE_LOCATION</code>) to obtain your approximate or precise location and look up weather for your current city. The coordinates are used on your device and are sent to the Open-Meteo weather service to retrieve weather data for that location, and to the BigDataCloud reverse geocoding service to resolve the city name. The App does <strong>not</strong> collect background location, does <strong>not</strong> build a location history, and never shares your location with any other party.</li>
+      <li><strong>City search keywords.</strong> When you search for a city inside the App, the keyword you enter is sent to the Open-Meteo geocoding service to resolve the city name into coordinates. The keyword is not retained by the App and is not associated with any identity information.</li>
+      <li><strong>Weather map tile data.</strong> When you open the weather map, the App requests image tiles from map and weather data providers. Those requests contain only the map zoom level and tile coordinates, and include no identity information.</li>
+      <li><strong>Crash and diagnostic information.</strong> Basic crash logs and diagnostic data collected through Google Play services (standard Google Play reporting, which can be disabled in your system settings).</li>
+    </ul>
+    <p>The App does <strong>not</strong> require an account and does not collect personal identifiers such as your name, email address, contact details, photos, or contacts. It does not use any push messaging service (such as FCM), and it never sends device tokens or advertising identifiers to any server.</p>
+
+    <h2 id="en-2">2. How We Use Information</h2>
+    <p>We use the information described above only to:</p>
+    <ul>
+      <li>provide real-time weather, hourly forecasts, and 7-day forecasts;</li>
+      <li>generate on-device tips and notifications when risky weather, such as strong winds or thunderstorms, is forecast for your saved cities. These tips are generated automatically on your device from forecast data and preset thresholds; they are <strong>not</strong> warnings issued by any official meteorological agency. For authoritative information, please refer to your local official weather service;</li>
+      <li>display weather radar, cloud imagery, and air-quality maps;</li>
+      <li>keep the service secure and operating reliably; and</li>
+      <li>improve product quality and the user experience.</li>
+    </ul>
+
+    <h2 id="en-3">3. How Information Is Shared</h2>
+    <p>We do not sell your personal information. To deliver the core features, necessary data is disclosed to the following third parties:</p>
+    <ul>
+      <li><strong>Open-Meteo</strong> (<code>open-meteo.com</code>) &mdash; weather forecasts, air quality, and city geocoding. It receives geographic coordinates or search terms and returns public weather data; requests carry no account, identifier, or personal information.</li>
+      <li><strong>BigDataCloud</strong> (<code>bigdatacloud.net</code>) &mdash; reverse geocoding. It receives geographic coordinates and a language parameter to resolve the city name of the current location.</li>
+      <li><strong>RainViewer</strong> (<code>rainviewer.com</code>) &mdash; provides the radar and cloud imagery index and image tiles used in the weather map.</li>
+      <li><strong>Esri / ArcGIS Online</strong> (<code>arcgisonline.com</code>) &mdash; provides street basemap tiles. Map data is attributable to Esri, HERE, Garmin, FAO, NOAA, USGS, and OpenStreetMap contributors.</li>
+      <li><strong>WAQI</strong> (<code>waqi.info</code>) &mdash; provides air-quality layer tiles; these requests include an access token configured by the App.</li>
+      <li><strong>OpenWeatherMap</strong> (<code>openweathermap.org</code>) &mdash; provides precipitation layer tiles only when an access key has been configured.</li>
+      <li><strong>MapLibre</strong> (<code>demotiles.maplibre.org</code>) &mdash; loads map font glyphs; no location information is sent.</li>
+    </ul>
+    <p>Except as described above and as required by applicable law or regulation, we do not disclose your information to any third party.</p>
+
+    <h2 id="en-4">4. Data Storage and Security</h2>
+    <ul>
+      <li>Your saved city list, cached forecasts, and theme and unit preferences are stored only on your device (a Room database and DataStore);</li>
+      <li>all network communication is encrypted over HTTPS; and</li>
+      <li>we maintain no server-side database of personal information.</li>
+    </ul>
+
+    <h2 id="en-5">5. Data Deletion</h2>
+    <p>You can delete saved cities inside the App at any time, or disable location or notification permissions in your system settings. Clearing the App&rsquo;s data removes all local cache and preferences.</p>
+
+    <h2 id="en-6">6. Children&rsquo;s Privacy</h2>
+    <p>The App is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
+
+    <h2 id="en-7">7. Changes to This Policy</h2>
+    <p>If this policy changes, we will update it on this page and revise the &ldquo;Last updated&rdquo; date. Material changes will be communicated through an in-app notice or similar means.</p>
+
+    <h2 id="en-8">8. Contact Us</h2>
+    <div class="contact-box">
+      <p>If you have any privacy-related questions about this Privacy Policy, please contact us at:</p>
+      <p><a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a></p>
+    </div>
+  </div>
+</article>
+<article class="locale" data-locale="zh" lang="zh-CN" hidden>
+  <div class="prose-head">
+    <p class="eyebrow">WDay 天气</p>
+    <h1>隐私政策</h1>
+    <p class="updated">最后更新：2026 年 10 月 27 日</p>
+    <p class="lead">本隐私政策说明 WDay（以下简称&ldquo;本应用&rdquo;）在您使用过程中如何处理信息。本应用以&ldquo;最小化收集&rdquo;为设计原则：无需注册账号，不包含任何广告或追踪 SDK，也没有保存个人信息的服务端数据库。</p>
+    <div class="chips">
+      <span class="chip">无需注册账号</span>
+      <span class="chip">无广告、无追踪</span>
+      <span class="chip">定位完全可选</span>
+      <span class="chip">数据仅存本机</span>
+    </div>
+  </div>
+  <details class="toc" open>
+    <summary>目录</summary>
+    <ol class="toc-list">
+      <li><a href="#zh-1">我们收集的信息</a></li>
+      <li><a href="#zh-2">信息的使用</a></li>
+      <li><a href="#zh-3">信息的共享</a></li>
+      <li><a href="#zh-4">数据存储与安全</a></li>
+      <li><a href="#zh-5">数据删除</a></li>
+      <li><a href="#zh-6">儿童隐私</a></li>
+      <li><a href="#zh-7">政策变更</a></li>
+      <li><a href="#zh-8">联系我们</a></li>
+    </ol>
+  </details>
+  <div class="content">
+    <h2 id="zh-1">1. 我们收集的信息</h2>
+    <p>本应用在您使用过程中可能涉及以下信息：</p>
+    <ul>
+      <li><strong>位置信息（可选）</strong>：只有当你点击&ldquo;定位当前城市&rdquo;时，本应用才会申请前台定位权限（<code>ACCESS_COARSE_LOCATION</code> / <code>ACCESS_FINE_LOCATION</code>），获取大致或精确位置，用于查询你当前所在城市的天气。坐标在你的设备上使用，并会发送到 Open-Meteo 天气服务以获取该地点的天气数据、发送到 BigDataCloud 反向地理编码服务以解析城市名称。本应用<strong>不收集后台位置、不建立位置历史</strong>，也不会把位置信息分享给其他任何一方。</li>
+      <li><strong>城市搜索关键词</strong>：当你在应用内搜索城市时，你输入的关键词会发送到 Open-Meteo 的地理编码服务，用于把城市名解析为坐标。该关键词不会被本应用留存，也不会与任何身份信息关联。</li>
+      <li><strong>天气地图瓦片数据</strong>：当你打开天气地图时，应用会向地图与气象数据服务商请求图片瓦片，请求内容为地图缩放级别和瓦片坐标，不包含你的身份信息。</li>
+      <li><strong>崩溃与诊断信息</strong>：通过 Google Play 服务收集的基础崩溃日志和诊断数据（Google Play 标准报告，可在系统设置中关闭）。</li>
+    </ul>
+    <p>本应用<strong>不需要注册账号</strong>，不会收集你的姓名、邮箱、联系方式、照片、通讯录等个人身份信息。本应用<strong>不使用任何推送消息服务</strong>（例如 FCM），也不会把设备令牌或广告标识符发送到任何服务器。</p>
+
+    <h2 id="zh-2">2. 信息的使用</h2>
+    <p>我们仅将上述信息用于：</p>
+    <ul>
+      <li>提供实时天气、逐小时与 7 天预报功能；</li>
+      <li>在你收藏城市的预报出现风险天气时，于你的设备上生成提示并发出通知。这些提示由本应用根据预报数据与阈值在你的设备上自动生成，<strong>不是任何官方气象机构发布的预警</strong>，权威信息请以当地官方气象服务为准；</li>
+      <li>展示天气雷达、云图与空气质量地图；</li>
+      <li>保障服务安全与稳定运行；</li>
+      <li>改进产品质量与用户体验。</li>
+    </ul>
+
+    <h2 id="zh-3">3. 信息的共享</h2>
+    <p>我们不会出售你的个人信息。为实现核心功能，我们会向以下第三方披露必要数据：</p>
+    <ul>
+      <li><strong>Open-Meteo</strong>（<code>open-meteo.com</code>）：天气预报、空气质量与城市地理编码服务，接收地理坐标或搜索词，返回公开天气数据；请求中不附带账号、标识符或个人身份信息。</li>
+      <li><strong>BigDataCloud</strong>（<code>bigdatacloud.net</code>）：反向地理编码服务，接收地理坐标与语言参数，用于解析当前位置的城市名称。</li>
+      <li><strong>RainViewer</strong>（<code>rainviewer.com</code>）：在天气地图中提供雷达与云图索引及图像瓦片。</li>
+      <li><strong>Esri / ArcGIS Online</strong>（<code>arcgisonline.com</code>）：提供街道底图瓦片，地图数据归属 Esri、HERE、Garmin、FAO、NOAA、USGS、OpenStreetMap 贡献者。</li>
+      <li><strong>WAQI</strong>（<code>waqi.info</code>）：提供空气质量图层瓦片，请求附带应用配置的访问令牌。</li>
+      <li><strong>OpenWeatherMap</strong>（<code>openweathermap.org</code>）：仅在配置了访问密钥时提供降水图层瓦片。</li>
+      <li><strong>MapLibre</strong>（<code>demotiles.maplibre.org</code>）：加载地图文字字形，不发送位置信息。</li>
+    </ul>
+    <p>除上述情况以及法律法规要求外，我们不会向任何第三方披露你的信息。</p>
+
+    <h2 id="zh-4">4. 数据存储与安全</h2>
+    <ul>
+      <li>你保存的城市列表、缓存的预报、主题与单位偏好仅保存在设备本地（Room 数据库与 DataStore）；</li>
+      <li>所有网络通信均通过 HTTPS 加密；</li>
+      <li>我们没有保存个人信息的服务端数据库。</li>
+    </ul>
+
+    <h2 id="zh-5">5. 数据删除</h2>
+    <p>你可以随时在应用内删除已保存的城市，或在系统设置中关闭定位、通知权限。清除应用数据即可删除全部本地缓存与偏好。</p>
+
+    <h2 id="zh-6">6. 儿童隐私</h2>
+    <p>本应用不面向 13 岁以下儿童，也不会故意收集儿童的个人信息。</p>
+
+    <h2 id="zh-7">7. 政策变更</h2>
+    <p>若本政策发生变更，我们会在本页面更新并修改&ldquo;最后更新&rdquo;日期。重大变更会通过应用内提示等方式通知你。</p>
+
+    <h2 id="zh-8">8. 联系我们</h2>
+    <div class="contact-box">
+      <p>如对本隐私政策有任何隐私相关问题，请通过以下邮箱联系我们：</p>
+      <p><a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a></p>
+    </div>
+  </div>
+</article>
+<article class="locale" data-locale="ja" lang="ja" hidden>
+  <div class="prose-head">
+    <p class="eyebrow">WDay 天気</p>
+    <h1>プライバシーポリシー</h1>
+    <p class="updated">最終更新日：2026年10月27日</p>
+    <p class="lead">本プライバシーポリシーは、WDay（以下&ldquo;本アプリ&rdquo;）のご利用にあたり、本アプリがどのように情報を取り扱うかを説明します。本アプリはデータの収集を最小限に抑える設計です。アカウント登録は不要で、広告・トラッキング SDK は含まれず、個人情報を保存するサーバー側のデータベースもありません。</p>
+    <div class="chips">
+      <span class="chip">アカウント登録不要</span>
+      <span class="chip">広告・トラッカーなし</span>
+      <span class="chip">位置情報は任意</span>
+      <span class="chip">データは端末内に保存</span>
+    </div>
+  </div>
+  <details class="toc" open>
+    <summary>目次</summary>
+    <ol class="toc-list">
+      <li><a href="#ja-1">取得する情報</a></li>
+      <li><a href="#ja-2">情報の利用目的</a></li>
+      <li><a href="#ja-3">第三者への提供</a></li>
+      <li><a href="#ja-4">保管と安全管理</a></li>
+      <li><a href="#ja-5">データの削除</a></li>
+      <li><a href="#ja-6">子どものプライバシー</a></li>
+      <li><a href="#ja-7">ポリシーの変更</a></li>
+      <li><a href="#ja-8">お問い合わせ</a></li>
+    </ol>
+  </details>
+  <div class="content">
+    <h2 id="ja-1">1. 取得する情報</h2>
+    <p>本アプリのご利用にあたり、取り扱われる情報は以下のとおりです。</p>
+    <ul>
+      <li><strong>位置情報（任意）</strong>：&ldquo;現在地の都市を特定&rdquo;をタップした場合に限り、本アプリはフォアグラウンドで位置情報の権限（<code>ACCESS_COARSE_LOCATION</code> / <code>ACCESS_FINE_LOCATION</code>）を要求し、おおよその位置または正確な位置を取得して、現在地の都市の天気を照会します。座標はお客様の端末上で使用され、その地点の天気データを取得するため Open-Meteo の天気サービスへ、都市名を特定するため BigDataCloud の逆ジオコーディングサービスへ送信されます。本アプリはバックグラウンドでの位置情報を取得せず、位置情報の履歴も作成しません。また、位置情報を他のいかなる第三者とも共有しません。</li>
+      <li><strong>都市検索のキーワード</strong>：アプリ内で都市を検索する際、入力されたキーワードは、都市名を座標に変換するため Open-Meteo のジオコーディングサービスへ送信されます。このキーワードは本アプリに保存されず、本人を特定する情報とも関連付けられません。</li>
+      <li><strong>天気マップのタイルデータ</strong>：天気マップを開いた場合、本アプリは地図・気象データ提供元に画像タイルを要求します。要求内容は地図のズームレベルとタイル座標のみで、本人を特定する情報は含まれません。</li>
+      <li><strong>クラッシュと診断情報</strong>：Google Play 開発者サービスを通じて収集される基本的なクラッシュログと診断データです（Google Play の標準レポートであり、システム設定で無効にできます）。</li>
+    </ul>
+    <p>本アプリはアカウント登録を必要とせず、氏名、メールアドレス、連絡先、写真、連絡帳などの個人を特定する情報を収集しません。また、FCM などのプッシュメッセージサービスを使用せず、デバイストークンや広告識別子をいかなるサーバーにも送信しません。</p>
+
+    <h2 id="ja-2">2. 情報の利用目的</h2>
+    <p>上記の情報は、以下の目的にのみ利用します。</p>
+    <ul>
+      <li>リアルタイムの天気、1時間ごとおよび7日間の予報を提供すること。</li>
+      <li>保存した都市に強風や雷雨などの注意を要する天気が予想される場合に、端末上でお知らせと通知を生成すること。これらのお知らせは、予報データとあらかじめ設定されたしきい値に基づいてお客様の端末上で自動生成されるもので、公式気象機関が発表する警報では<strong>ありません</strong>。信頼できる情報については、お住まいの地域の公式気象サービスをご確認ください。</li>
+      <li>天気レーダー、雲の画像、大気質マップを表示すること。</li>
+      <li>サービスの安全かつ安定した運用を確保すること。</li>
+      <li>製品の品質と使いやすさを向上すること。</li>
+    </ul>
+
+    <h2 id="ja-3">3. 第三者への提供</h2>
+    <p>私たちは個人情報を販売しません。主な機能を提供するため、必要なデータを以下の第三者に提供します。</p>
+    <ul>
+      <li><strong>Open-Meteo</strong>（<code>open-meteo.com</code>）：天気予報、大気質、都市のジオコーディング。地理座標または検索語を受け取り、公開されている天気データを返します。要求にアカウント、識別子、個人情報は含まれません。</li>
+      <li><strong>BigDataCloud</strong>（<code>bigdatacloud.net</code>）：逆ジオコーディング。現在地の都市名を特定するため、地理座標と言語パラメータを受け取ります。</li>
+      <li><strong>RainViewer</strong>（<code>rainviewer.com</code>）：天気マップで使用するレーダー・雲画像の索引および画像タイルを提供します。</li>
+      <li><strong>Esri / ArcGIS Online</strong>（<code>arcgisonline.com</code>）：道路のベースマップタイルを提供します。地図データの帰属は Esri、HERE、Garmin、FAO、NOAA、USGS、OpenStreetMap contributors です。</li>
+      <li><strong>WAQI</strong>（<code>waqi.info</code>）：大気質レイヤーのタイルを提供します。要求には本アプリが設定したアクセストークンが含まれます。</li>
+      <li><strong>OpenWeatherMap</strong>（<code>openweathermap.org</code>）：アクセスキーが設定されている場合に限り、降水レイヤーのタイルを提供します。</li>
+      <li><strong>MapLibre</strong>（<code>demotiles.maplibre.org</code>）：地図のフォントグリフを読み込みます。位置情報は送信しません。</li>
+    </ul>
+    <p>上記の場合、および法令に基づく要求を除き、お客様の情報を第三者に提供することはありません。</p>
+
+    <h2 id="ja-4">4. 保管と安全管理</h2>
+    <ul>
+      <li>保存した都市の一覧、キャッシュされた予報、テーマや単位の設定は、お客様の端末内にのみ保存されます（Room データベースおよび DataStore）。</li>
+      <li>すべての通信は HTTPS で暗号化されます。</li>
+      <li>個人情報を保存するサーバー側のデータベースはありません。</li>
+    </ul>
+
+    <h2 id="ja-5">5. データの削除</h2>
+    <p>アプリ内で保存した都市をいつでも削除できます。また、システム設定で位置情報や通知の権限をオフにできます。アプリのデータを消去すると、すべてのローカルキャッシュと設定が削除されます。</p>
+
+    <h2 id="ja-6">6. 子どものプライバシー</h2>
+    <p>本アプリは13歳未満の子どもを対象としておらず、子どもの個人情報を意図的に収集することもありません。</p>
+
+    <h2 id="ja-7">7. ポリシーの変更</h2>
+    <p>本ポリシーを変更する場合は、このページを更新し、&ldquo;最終更新日&rdquo;を変更します。重要な変更は、アプリ内のお知らせなどの方法で通知します。</p>
+
+    <h2 id="ja-8">8. お問い合わせ</h2>
+    <div class="contact-box">
+      <p>本プライバシーポリシーに関するご質問は、以下のメールアドレスまでお問い合わせください。</p>
+      <p><a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a></p>
+    </div>
+  </div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p data-locale="en">&copy; 2026 WDay &middot; Privacy questions: <a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a></p>
+    <p data-locale="zh" hidden>&copy; 2026 WDay · 隐私相关问题请联系 <a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a></p>
+    <p data-locale="ja" hidden>&copy; 2026 WDay · プライバシーに関するご質問は <a href="mailto:nelson.fengyu@gmail.com">nelson.fengyu@gmail.com</a> まで</p>
+  </div>
+</footer>
+<button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top">&uarr;</button>
+<noscript><p class="noscript-note">Language switching requires JavaScript. The English version is displayed without JavaScript; enable JavaScript to read the 中文 or 日本語 version.</p></noscript>
+<script>
+(function () {
+  var LANGS = ['en', 'zh', 'ja'];
+  var LANG_KEY = 'wday:lang';
+  var THEME_KEY = 'wday:theme';
+  var storage = null;
+  try { storage = window.localStorage; } catch (e) {}
+
+  var titles = {
+    en: 'WDay Privacy Policy',
+    zh: 'WDay 隐私政策',
+    ja: 'WDay プライバシーポリシー'
+  };
+  var backLabels = {
+    en: 'Back to top',
+    zh: '返回顶部',
+    ja: 'トップへ戻る'
+  };
+
+  function getLang() {
+    var match = /[?&]lang=(en|zh|ja)(?:&|$)/.exec(window.location.search);
+    if (match) return match[1];
+    if (storage) {
+      var saved = storage.getItem(LANG_KEY);
+      if (saved && LANGS.indexOf(saved) !== -1) return saved;
+    }
+    var nav = (navigator.language || 'en').toLowerCase();
+    if (nav.indexOf('zh') === 0) return 'zh';
+    if (nav.indexOf('ja') === 0) return 'ja';
+    return 'en';
+  }
+
+  function setLang(lang, userInitiated) {
+    var nodes = document.querySelectorAll('[data-locale]');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].hidden = nodes[i].getAttribute('data-locale') !== lang;
+    }
+    var buttons = document.querySelectorAll('.lang-switch button');
+    for (var j = 0; j < buttons.length; j++) {
+      buttons[j].setAttribute('aria-pressed',
+        buttons[j].getAttribute('data-lang') === lang ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    document.title = titles[lang];
+    var back = document.getElementById('toTop');
+    if (back) {
+      back.setAttribute('aria-label', backLabels[lang]);
+      back.setAttribute('title', backLabels[lang]);
+    }
+    if (storage) { try { storage.setItem(LANG_KEY, lang); } catch (e) {} }
+    if (userInitiated) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  var themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', function () {
+    var root = document.documentElement;
+    var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    if (storage) { try { storage.setItem(THEME_KEY, next); } catch (e) {} }
+  });
+
+  var langButtons = document.querySelectorAll('.lang-switch button');
+  for (var k = 0; k < langButtons.length; k++) {
+    langButtons[k].addEventListener('click', function () {
+      setLang(this.getAttribute('data-lang'), true);
+    });
+  }
+
+  var toTop = document.getElementById('toTop');
+  function onScroll() {
+    if (window.pageYOffset > 420) { toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  setLang(getLang(), false);
+})();
+</script>
+</body>
+</html>

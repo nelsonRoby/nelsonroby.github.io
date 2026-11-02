@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEBox — Privacy Policy / 隐私政策</title>
+<meta name="description" content="NEBox privacy policy: no accounts, no analytics, no ads. All diagnostics run on your device.">
+<meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --panel: #121821;
+    --panel2: #0e141c;
+    --line: #1e2836;
+    --line2: #2a3646;
+    --text: #e6edf3;
+    --sub: #a8b8c9;
+    --muted: #7a8b9e;
+    --cyan: #22d3ee;
+    --blue: #60a5fa;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --maxw: 900px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f5f7f9;
+      --panel: #ffffff;
+      --panel2: #f0f3f6;
+      --line: #e2e8ef;
+      --line2: #d2dae2;
+      --text: #0d141b;
+      --sub: #3d4d5c;
+      --muted: #64748b;
+      --cyan: #0e7490;
+      --blue: #1d4ed8;
+      --green: #047857;
+      --amber: #b45309;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 15.5px/1.7 var(--sans);
+    overflow-wrap: break-word;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 20px 16px 64px; }
+
+  /* ---------- header ---------- */
+  header {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--panel);
+    padding: 22px 20px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    font: 700 12px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .dot {
+    width: 20px; height: 20px; border-radius: 6px; flex: none;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+  }
+  h1 {
+    font-size: clamp(22px, 5.2vw, 30px);
+    line-height: 1.25;
+    margin: 14px 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .eff { color: var(--muted); font: 12.5px/1.5 var(--mono); margin-top: 6px; }
+  .langbar { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .langbar button {
+    font: 600 12.5px/1 var(--mono); letter-spacing: .04em;
+    padding: 9px 16px; border-radius: 9px; cursor: pointer;
+    background: var(--panel2); color: var(--muted);
+    border: 1px solid var(--line2);
+    transition: color .15s, background .15s, border-color .15s;
+  }
+  .langbar button:hover { color: var(--text); border-color: var(--cyan); }
+  .langbar button[aria-pressed="true"] { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+
+  /* ---------- summary cards ---------- */
+  .cards { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+  .card {
+    border: 1px solid var(--line); border-radius: 14px;
+    background: var(--panel); padding: 13px 15px;
+  }
+  .card .k { font: 700 10.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--cyan); }
+  .card .v { margin-top: 6px; font-size: 13.5px; color: var(--sub); }
+  .card .v b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; }
+
+  /* ---------- sections ---------- */
+  section { margin-top: 34px; }
+  h2 {
+    font-size: clamp(17px, 4vw, 20px);
+    margin: 0 0 8px; letter-spacing: -0.005em;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  h3 { font-size: 15px; margin: 22px 0 4px; }
+  p { margin: 10px 0; color: var(--sub); }
+  ul { margin: 10px 0; padding-left: 20px; color: var(--sub); }
+  li { margin: 6px 0; }
+  strong { color: var(--text); font-weight: 650; }
+  a { color: var(--cyan); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--cyan) 35%, transparent); }
+  a:hover { border-bottom-color: var(--cyan); }
+  code, .mono { font-family: var(--mono); font-size: 13px; overflow-wrap: anywhere; }
+  .num { color: var(--cyan); font-family: var(--mono); margin-right: 6px; }
+
+  /* ---------- third-party service cards ---------- */
+  .svcs { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+  .svc {
+    border: 1px solid var(--line); border-left: 3px solid var(--blue);
+    border-radius: 12px; background: var(--panel); padding: 12px 14px;
+  }
+  .svc .name { font: 600 13px/1.5 var(--mono); color: var(--text); overflow-wrap: anywhere; }
+  .svc .when {
+    display: inline-block; margin-top: 6px;
+    font: 600 10.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase;
+    color: var(--blue); border: 1px solid color-mix(in srgb, var(--blue) 38%, transparent);
+    padding: 5px 8px; border-radius: 6px;
+  }
+  .svc .what { margin-top: 8px; font-size: 13.5px; color: var(--sub); }
+
+  /* ---------- tables ---------- */
+  .rtable { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13.5px; }
+  .rtable th, .rtable td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .rtable th { font: 650 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .rtable td:first-child { color: var(--text); font-family: var(--mono); font-size: 12.5px; }
+  .rtable td { color: var(--sub); }
+
+  .note {
+    border: 1px solid var(--line2); border-left: 3px solid var(--amber);
+    border-radius: 12px; background: var(--panel); padding: 12px 15px; margin: 16px 0;
+  }
+  .note p { margin: 0; font-size: 13.5px; }
+  .note p + p { margin-top: 8px; }
+  .tag {
+    display: inline-block; font: 600 10.5px/1 var(--mono); letter-spacing: .09em;
+    text-transform: uppercase; padding: 5px 8px; border-radius: 6px;
+    border: 1px solid var(--line2); color: var(--muted); margin-right: 6px;
+  }
+  .tag.green { color: var(--green); border-color: color-mix(in srgb, var(--green) 40%, transparent); }
+
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+  /* ---------- language switching ---------- */
+  html[data-lang="en"] .zh { display: none; }
+  html[data-lang="zh"] .en { display: none; }
+
+  /* ---------- desktop / wide ---------- */
+  @media (min-width: 700px) {
+    body { font-size: 16px; }
+    .wrap { padding: 34px 24px 80px; }
+    header { padding: 28px 28px 24px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 18px; }
+    .svcs { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+    .rtable { font-size: 14px; }
+    .rtable th, .rtable td { padding: 11px 14px; }
+  }
+  @media (min-width: 1000px) {
+    :root { --maxw: 960px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+  }
+
+  /* ---------- narrow screens: stack the permission table ---------- */
+  @media (max-width: 620px) {
+    .rtable thead { display: none; }
+    .rtable, .rtable tbody, .rtable tr, .rtable td { display: block; width: 100%; }
+    .rtable tr {
+      border: 1px solid var(--line); border-radius: 12px;
+      background: var(--panel); padding: 4px 13px; margin-top: 10px;
+    }
+    .rtable td { border-bottom: none; padding: 7px 0; }
+    .rtable td::before {
+      content: attr(data-label);
+      display: block; margin-bottom: 3px;
+      font: 650 10.5px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    }
+    .rtable td:first-child { font-size: 12.5px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .langbar { display: none; }
+    header, .card, .svc, .note, .rtable tr { border-color: #ccc; background: #fff; }
+    .svc, .card, .note { break-inside: avoid; }
+    h2 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand"><span class="dot"></span> NEBox</div>
+  <h1 class="en">Privacy Policy</h1>
+  <h1 class="zh">隐私政策</h1>
+  <div class="eff">
+    <span class="en">Effective date: October 28, 2026</span>
+    <span class="zh">生效日期：2026 年 10 月 28 日</span>
+  </div>
+  <div class="langbar" role="group" aria-label="Language / 语言">
+    <button id="btn-en" type="button" aria-pressed="true">English</button>
+    <button id="btn-zh" type="button" aria-pressed="false">中文</button>
+  </div>
+</header>
+
+<section id="summary">
+  <h2><span class="num">01</span><span class="en">Summary</span><span class="zh">概要</span></h2>
+  <p class="en">NEBox measures your network. You run the measurement; the app reports the result on screen. The maintainers of NEBox collect no personal data, operate no backend, and have no access to anything your device reports. Where a measurement unavoidably involves a third-party server — a speed-test node or a WHOIS registry, for example — that server necessarily sees your IP address and the query you asked for. Section 5 lists every server NEBox contacts and exactly what is sent.</p>
+  <p class="zh">NEBox 用来测量你的网络。测量由你发起，结果直接显示在屏幕上。NEBox 维护者不收集任何个人数据，不运营后端服务，也无法看到设备上的任何结果。少数功能不可避免地会访问第三方服务器（例如测速节点或 WHOIS 注册局），这类服务器必然会看到你的 IP 地址和你发起的查询。第 5 节逐项列出了会访问的所有服务器及发送内容。</p>
+</section>
+
+<section id="collect">
+  <h2><span class="num">02</span><span class="en">What we collect</span><span class="zh">我们收集什么</span></h2>
+  <p class="en">Nothing. The NEBox maintainers do not collect, transmit, sell, share, rent, or monetise any personal data, device data, or usage data. There is no project-operated server that your measurements, history, or diagnostics are uploaded to. The app contains no advertising SDK, no analytics SDK, no crash-reporting SDK, and no fingerprinting code.</p>
+  <p class="zh">什么都没有。NEBox 维护者不收集、不上传、不出售、不共享、不出租、不变现任何个人数据、设备数据或使用数据。本项目没有任何服务器会接收你的测量结果、历史记录或诊断信息。应用不包含广告 SDK、分析 SDK、崩溃上报 SDK 或任何指纹识别代码。</p>
+</section>
+
+<section id="device-data">
+  <h2><span class="num">03</span><span class="en">Data processed on your device</span><span class="zh">在设备本地处理的数据</span></h2>
+  <p class="en">The following is read from your device and shown to you. It is processed locally and is not uploaded by NEBox.</p>
+  <p class="zh">以下信息由应用从设备读取并展示给你，全部在本地处理，NEBox 不会将其上传到任何地方。</p>
+  <ul>
+    <li class="en"><strong>Wi-Fi scan results</strong> — SSID, BSSID, signal strength (dBm), link speed, band and channel.</li>
+    <li class="en"><strong>Local network state</strong> — interface addresses, gateway and DNS server addresses, DHCP information.</li>
+    <li class="en"><strong>Measurement results</strong> — ping, traceroute, MTR, speed test, DNS answers, WHOIS records, TCP port and TLS certificate check results.</li>
+    <li class="en"><strong>Public IP address</strong> — fetched only when you open the “My IP” tool, and only from the service listed in section 5.</li>
+    <li class="en"><strong>Run history</strong> — summaries of ping and speed test runs, stored on the device (section 6).</li>
+    <li class="zh"><strong>Wi-Fi 扫描结果</strong> —— SSID、BSSID、信号强度（dBm）、链路速率、频段与信道。</li>
+    <li class="zh"><strong>本地网络状态</strong> —— 网卡地址、网关与 DNS 服务器地址、DHCP 信息。</li>
+    <li class="zh"><strong>测量结果</strong> —— ping、traceroute、MTR、测速、DNS 解析结果、WHOIS 注册信息、TCP 端口与 TLS 证书检测结果。</li>
+    <li class="zh"><strong>公网 IP 地址</strong> —— 仅在你打开「My IP」工具时获取，且只来自第 5 节列出的服务。</li>
+    <li class="zh"><strong>运行历史</strong> —— ping 与测速记录的摘要，保存在设备本地（见第 6 节）。</li>
+  </ul>
+</section>
+
+<section id="permissions">
+  <h2><span class="num">04</span><span class="en">Permissions</span><span class="zh">权限</span></h2>
+  <table class="rtable">
+    <thead>
+      <tr>
+        <th class="en">Permission</th><th class="en">Why NEBox needs it</th>
+        <th class="zh">权限</th><th class="zh">用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Permission / 权限">INTERNET</td>
+        <td data-label="Why / 用途" class="en">Run the network tools — probes, DNS queries and downloads.</td>
+        <td data-label="Why / 用途" class="zh">运行网络工具：探测、DNS 查询、数据下载。</td>
+      </tr>
+      <tr>
+        <td data-label="Permission / 权限">ACCESS_NETWORK_STATE</td>
+        <td data-label="Why / 用途" class="en">Read the connection type and current connection details.</td>
+        <td data-label="Why / 用途" class="zh">读取连接类型与当前连接详情。</td>
+      </tr>
+      <tr>
+        <td data-label="Permission / 权限">ACCESS_WIFI_STATE</td>
+        <td data-label="Why / 用途" class="en">Read the current Wi-Fi connection information.</td>
+        <td data-label="Why / 用途" class="zh">读取当前 Wi-Fi 连接信息。</td>
+      </tr>
+      <tr>
+        <td data-label="Permission / 权限">CHANGE_WIFI_STATE</td>
+        <td data-label="Why / 用途" class="en">Request scan results for nearby networks.</td>
+        <td data-label="Why / 用途" class="zh">请求周边网络的扫描结果。</td>
+      </tr>
+      <tr>
+        <td data-label="Permission / 权限">ACCESS_FINE_LOCATION</td>
+        <td data-label="Why / 用途" class="en">Android requires a location permission to reveal the Wi-Fi SSID and to scan for nearby networks (Android 10+). NEBox never reads, stores, derives or transmits location coordinates — the permission exists only to satisfy the platform.</td>
+        <td data-label="Why / 用途" class="zh">Android 10 及以上版本要求定位权限才能读取 Wi-Fi SSID 并扫描周边网络。NEBox 不会读取、存储、推算或上传任何位置坐标，该权限仅为满足系统要求而申请。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="third-party">
+  <h2><span class="num">05</span><span class="en">Third-party servers</span><span class="zh">第三方服务器</span></h2>
+  <p class="en">Some tools have to reach a server to answer your question. NEBox adds no identifiers, cookies, or tracking parameters to those requests. The server you contact will see your IP address and the query you typed — this is inherent to how the Internet works, and it applies to any of these tools.</p>
+  <p class="zh">部分工具必须访问服务器才能给出结果。NEBox 不会在这些请求中添加任何标识符、Cookie 或跟踪参数。你访问的服务器会看到你的 IP 地址和你输入的查询内容 —— 这是网络本身的机制，与具体工具无关。</p>
+  <div class="svcs">
+    <div class="svc">
+      <div class="name">api.ipify.org</div>
+      <div class="when"><span class="en">My IP</span><span class="zh">My IP</span></div>
+      <div class="what en">Sends the request itself, from which the service derives your public IP.</div>
+      <div class="what zh">发送该请求本身，服务方由此得出你的公网 IP。</div>
+    </div>
+    <div class="svc">
+      <div class="name">librespeed.org</div>
+      <div class="when"><span class="en">Speed Test</span><span class="zh">测速</span></div>
+      <div class="what en">Downloads the public list of test nodes.</div>
+      <div class="what zh">下载公开的测速节点列表。</div>
+    </div>
+    <div class="svc">
+      <div class="name">*.speedtest.clouvider.net</div>
+      <div class="when"><span class="en">Speed Test</span><span class="zh">测速</span></div>
+      <div class="what en">Sends and receives test data to and from the node you selected, used to measure throughput.</div>
+      <div class="what zh">与所选节点之间收发测试数据，用于计算吞吐量。</div>
+    </div>
+    <div class="svc">
+      <div class="name">whois.iana.org &amp; registrar WHOIS servers (port 43)</div>
+      <div class="when"><span class="en">WHOIS</span><span class="zh">WHOIS</span></div>
+      <div class="what en">Sends the domain name you typed.</div>
+      <div class="what zh">发送你输入的域名。</div>
+    </div>
+    <div class="svc">
+      <div class="name"><span class="en">Your DNS resolver</span><span class="zh">你使用的 DNS 解析器</span></div>
+      <div class="when"><span class="en">DNS Lookup</span><span class="zh">DNS 查询</span></div>
+      <div class="what en">Sends the domain name you typed.</div>
+      <div class="what zh">发送你输入的域名。</div>
+    </div>
+    <div class="svc">
+      <div class="name"><span class="en">The host you specify</span><span class="zh">你指定的目标主机</span></div>
+      <div class="when"><span class="en">Ping · Traceroute · MTR · Port &amp; SSL</span><span class="zh">Ping · Traceroute · MTR · 端口与证书</span></div>
+      <div class="what en">Sends network probes from your device to that host.</div>
+      <div class="what zh">你的设备向该主机发起网络探测包。</div>
+    </div>
+  </div>
+  <div class="note">
+    <p class="en"><span class="tag">Note</span> WHOIS is a plaintext protocol by design, so domain lookups are not encrypted. If that matters to you, avoid using the WHOIS tool on sensitive domain names, or run it from a trusted network.</p>
+    <p class="zh"><span class="tag">注意</span> WHOIS 协议本身就是明文的，因此域名查询不被加密。如果你对此敏感，请避免对敏感域名使用 WHOIS 工具，或在可信网络中执行。</p>
+  </div>
+</section>
+
+<section id="storage">
+  <h2><span class="num">06</span><span class="en">Local storage, retention and deletion</span><span class="zh">本地存储、保留与删除</span></h2>
+  <p class="en">Ping history and speed test history are saved in the app's private <code>DataStore</code> inside NEBox's own sandbox. Each entry holds the target host, the measurement summary and a timestamp. This data never leaves your device through NEBox. You can erase it at any time with the <strong>Clear</strong> control in the Ping and Speed Test history lists, or by uninstalling the app.</p>
+  <p class="zh">Ping 与测速历史保存在 NEBox 私有沙箱内的 <code>DataStore</code> 中。每条记录包含目标主机、测量摘要与时间戳。这些数据不会经由 NEBox 离开你的设备。你可以随时在 Ping 与测速的历史列表中点击 <strong>Clear</strong> 清除，或卸载应用来删除。</p>
+  <p class="en">If Android's system backup is enabled for your device, Android may include NEBox's local data in your device backup, which is stored by your device manufacturer or Google according to your device backup settings. That backup is outside NEBox's control — you can review or disable it in your device's system backup settings.</p>
+  <p class="zh">如果你的设备开启了 Android 系统备份，NEBox 的本地数据可能被包含进设备备份中，由设备厂商或 Google 按你的备份设置保存。这部分不受 NEBox 控制，你可以在设备的系统备份设置中查看或关闭。</p>
+</section>
+
+<section id="rights">
+  <h2><span class="num">07</span><span class="en">Sharing, sale and your rights</span><span class="zh">共享、出售与你的权利</span></h2>
+  <p class="en">NEBox does not share, sell, rent, trade or otherwise disclose data with third parties, advertisers, data brokers or analytics providers. There is no data to disclose, because none is collected.</p>
+  <p class="zh">NEBox 不会与第三方、广告主、数据经纪商或分析服务商共享、出售、出租、交换或以其他方式披露任何数据。由于根本不收集数据，也就没有可披露的数据。</p>
+  <p class="en">Because NEBox holds no personal data about you, there is nothing to access, correct, export, restrict or erase on our side. Under the GDPR, the CCPA and comparable laws, no data subject request can produce a response, because no such data exists. You can of course erase the local data described in section 6 at any time from the app itself.</p>
+  <p class="zh">由于 NEBox 不持有任何关于你的个人数据，因此不存在可查询、更正、导出、限制或删除的数据。在 GDPR、CCPA 及同类法律下，相关主体请求不会得到实质回应，因为这类数据并不存在。第 6 节中的本地数据你可以随时在应用内自行清除。</p>
+</section>
+
+<section id="children">
+  <h2><span class="num">08</span><span class="en">Children</span><span class="zh">儿童</span></h2>
+  <p class="en">NEBox is a utility for adults and is not directed at children under 13 (or the equivalent age in your jurisdiction). Because NEBox collects no personal data from anyone, it collects none from children either.</p>
+  <p class="zh">NEBox 是面向成年人的实用工具，不以 13 周岁以下（或你所在司法辖区对应年龄）儿童为目标人群。由于 NEBox 不收集任何个人数据，自然也不会从儿童处收集数据。</p>
+</section>
+
+<section id="security">
+  <h2><span class="num">09</span><span class="en">Security</span><span class="zh">安全</span></h2>
+  <p class="en">NEBox stores nothing outside your device's private app sandbox, and requests to third-party services use HTTPS wherever the service supports it. The WHOIS tool is the exception: WHOIS runs over plain TCP port 43 because the protocol has no encrypted transport, and the WHOIS servers you query will log that you looked up a given domain.</p>
+  <p class="zh">NEBox 除设备私有应用沙箱外不存储任何数据；对第三方服务的请求在服务支持的情况下均使用 HTTPS。WHOIS 工具是例外：WHOIS 协议本身没有加密传输层，只能走明文 TCP 43 端口，你查询的 WHOIS 服务器会记录你查询过某个域名。</p>
+</section>
+
+<footer>
+  <p class="en">NEBox — Privacy Policy. This page is the published version; <code>privacy-policy.md</code> in the repository carries the same text.</p>
+  <p class="zh">NEBox —— 隐私政策。本页为发布版本，仓库中的 <code>privacy-policy.md</code> 为同一份正文。</p>
+</footer>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var en = document.getElementById('btn-en');
+    var zh = document.getElementById('btn-zh');
+    function apply(lang) {
+      root.setAttribute('data-lang', lang);
+      root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+      en.setAttribute('aria-pressed', String(lang === 'en'));
+      zh.setAttribute('aria-pressed', String(lang === 'zh'));
+      try { localStorage.setItem('nebox-privacy-lang', lang); } catch (e) {}
+    }
+    en.addEventListener('click', function () { apply('en'); });
+    zh.addEventListener('click', function () { apply('zh'); });
+    var saved = null;
+    try { saved = localStorage.getItem('nebox-privacy-lang'); } catch (e) {}
+    if (!saved) {
+      saved = (navigator.language || 'en').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en';
+    }
+    apply(saved);
+  })();
+</script>
+</body>
+</html>

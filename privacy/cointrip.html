@@ -2,71 +2,382 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cointrip — Privacy Policy</title>
+<meta name="description" content="Cointrip does not collect personal or sensitive user data. Read how the offline-capable travel currency converter handles network requests, on-device storage, and permissions.">
+<meta name="theme-color" content="#2B6CFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1220" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232B6CFF'/%3E%3Cstop offset='1' stop-color='%2300B6A5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='17' font-weight='bold' fill='%23fff' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 <style>
-:root{--sky:#2B6CFF;--sea:#00B6A5;--ink:#0E1726;--muted:#5A6577;--bg:#F5F8FC;--card:#fff}
+:root{
+  --sky:#2B6CFF; --sea:#00B6A5;
+  --ink:#0E1726; --text:#26303F; --muted:#5A6577;
+  --bg:#F5F8FC; --card:#FFFFFF; --chip:#EEF3FA;
+  --border:#E3EAF3; --shadow:0 12px 36px rgba(20,60,120,.10);
+  --topbar:rgba(255,255,255,.85);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#EAF0FA; --text:#C6CFE0; --muted:#8B97AB;
+    --bg:#0B1220; --card:#131C2E; --chip:#1D2942;
+    --border:#243149; --shadow:0 18px 48px rgba(0,0,0,.45);
+    --topbar:rgba(11,18,32,.82);
+  }
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65}
-.hero{background:linear-gradient(135deg,#2B6CFF 0%,#1A6FD6 45%,#0E9BA6 75%,#00B6A5 100%);color:#fff;padding:56px 20px 48px;text-align:center}
-.hero h1{font-size:34px;letter-spacing:-.5px}
-.hero p{opacity:.85;margin-top:8px}
-main{max-width:780px;margin:-28px auto 60px;padding:0 16px}
-.card{background:var(--card);border-radius:18px;padding:32px;box-shadow:0 12px 36px rgba(20,60,120,.10);margin-bottom:20px}
-h2{font-size:20px;margin:26px 0 10px}
-h2:first-child{margin-top:0}
-p,li{color:#26303F}
-ul{padding-left:22px;margin:8px 0}
-.muted{color:var(--muted)}
-.lang{margin-top:26px;border-top:1px solid #E6ECF4;padding-top:22px}
-code{background:#EEF3FA;padding:2px 6px;border-radius:6px}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,
+    "PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",
+    "Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo",sans-serif;
+  color:var(--ink); background:var(--bg); line-height:1.75;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+[hidden]{display:none !important}
+a{color:var(--sky)}
+.skip-link{
+  position:absolute; left:12px; top:-52px; z-index:100;
+  background:var(--ink); color:var(--bg);
+  padding:10px 16px; border-radius:10px; font-size:14px; text-decoration:none;
+  transition:top .2s ease;
+}
+.skip-link:focus{top:10px}
+.topbar{
+  position:sticky; top:0; z-index:50; background:var(--topbar);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1080px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px 16px;
+  padding-left:max(16px,env(safe-area-inset-left));
+  padding-right:max(16px,env(safe-area-inset-right));
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:16px; color:var(--ink); text-decoration:none}
+.brand-mark{
+  width:30px; height:30px; border-radius:9px; flex:none;
+  background:linear-gradient(135deg,var(--sky),var(--sea));
+  color:#fff; display:grid; place-items:center;
+  font-size:15px; font-weight:800;
+  box-shadow:0 4px 12px rgba(43,108,255,.35);
+}
+.lang-switch{
+  display:inline-flex; flex:none;
+  background:var(--chip); border:1px solid var(--border);
+  border-radius:999px; padding:4px; gap:2px;
+}
+.lang-switch button{
+  appearance:none; -webkit-appearance:none; border:0; cursor:pointer;
+  background:transparent; color:var(--muted);
+  font:inherit; font-size:13px; font-weight:600;
+  min-height:40px; padding:0 12px; border-radius:999px; white:nowrap;
+  transition:background .2s ease,color .2s ease,box-shadow .2s ease;
+}
+.lang-switch button[aria-pressed="true"]{
+  background:var(--card); color:var(--sky);
+  box-shadow:0 2px 8px rgba(20,60,120,.14);
+}
+.lang-switch button:focus-visible{outline:2px solid var(--sky); outline-offset:2px}
+@media (min-width:640px){.lang-switch button{padding:0 18px; font-size:14px}}
+.hero{
+  background:linear-gradient(135deg,#2B6CFF 0%,#1A6FD6 45%,#0E9BA6 75%,#00B6A5 100%);
+  color:#fff; text-align:center;
+  padding:clamp(40px,8vw,72px) 20px clamp(48px,9vw,84px);
+}
+.hero h1{font-size:clamp(30px,6vw,42px); letter-spacing:-.5px}
+.hero .sub{margin-top:6px; font-size:clamp(15px,2.6vw,18px); opacity:.92}
+.hero-meta{
+  display:inline-flex; margin-top:16px; font-size:13px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+  padding:7px 16px; border-radius:999px;
+  -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+}
+main{
+  max-width:880px; margin:-28px auto 0;
+  padding:0 16px clamp(40px,7vw,64px);
+  position:relative;
+}
+.card{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:clamp(14px,2.5vw,20px);
+  padding:clamp(22px,5vw,44px);
+  box-shadow:var(--shadow);
+  counter-reset:section;
+}
+.card h2{
+  display:flex; align-items:baseline; gap:10px;
+  font-size:clamp(17px,2.6vw,20px);
+  margin:28px 0 10px;
+}
+.card h2:first-child{margin-top:0}
+.card h2::before{
+  counter-increment:section;
+  content:counter(section,decimal-leading-zero);
+  font-size:12px; font-weight:700; letter-spacing:.08em;
+  color:var(--sky); font-variant-numeric:tabular-nums; flex:none;
+}
+.card p,.card li{color:var(--text)}
+.card strong{color:var(--ink); font-weight:700}
+.card a{text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--sky) 40%,transparent); overflow-wrap:anywhere}
+.card a:hover{border-bottom-color:var(--sky)}
+.card ul{list-style:none; margin:8px 0; padding:0}
+.card li{position:relative; padding-left:22px; margin:8px 0}
+.card li::before{
+  content:""; position:absolute; left:3px; top:.72em;
+  width:7px; height:7px; border-radius:2px;
+  background:linear-gradient(135deg,var(--sky),var(--sea));
+  transform:rotate(45deg);
+}
+.card code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.88em;
+  background:var(--chip); border:1px solid var(--border);
+  padding:2px 7px; border-radius:7px; overflow-wrap:anywhere;
+}
+.card[lang="zh"],.card[lang="ja"]{line-height:1.9}
+footer{
+  text-align:center; color:var(--muted); font-size:13px;
+  padding:4px 16px 48px;
+  padding-bottom:max(48px,env(safe-area-inset-bottom));
+}
+footer .pkg{
+  display:inline-block; margin-bottom:10px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:12px; color:var(--muted);
+  background:var(--chip); border:1px solid var(--border);
+  padding:3px 12px; border-radius:999px;
+}
+@media (min-width:1024px){
+  .topbar-inner{padding-top:12px; padding-bottom:12px}
+  main{margin-top:-36px}
+}
+@media print{
+  .topbar,.skip-link{display:none}
+  body{background:#fff; color:#000}
+  .hero{background:#fff; color:#000; padding:0 0 12px; text-align:left}
+  .hero-meta{background:none; border:0; padding:0}
+  main{margin:0; max-width:none; padding:0}
+  .card{border:0; box-shadow:none; padding:0}
+  .card[hidden]{display:block !important}
+  .card + .card{break-before:page}
+}
 </style>
 </head>
 <body>
-<header class="hero"><h1>Cointrip</h1><p>Privacy Policy &nbsp;·&nbsp; Effective date: 21 October 2026</p></header>
-<main>
-<section class="card">
-<h2>Overview</h2>
-<p>Cointrip (&ldquo;we&rdquo;, &ldquo;the app&rdquo;) is an offline-capable travel currency converter. Your privacy is designed in: the app does <strong>not</strong> require an account and does <strong>not</strong> collect personal or sensitive user data.</p>
-
-<h2>Data we collect</h2>
-<p><strong>None.</strong> We do not collect, transmit, store, or share personal information, identifiers, financial information, location, contacts, photos, or usage analytics. There are no third-party advertising SDKs and no tracking pixels in the app.</p>
-
-<h2>Network requests</h2>
-<p>The app makes requests to <code>https://api.frankfurter.dev</code> to download public exchange-rate reference data published by the European Central Bank. Requests contain only the currency codes and dates needed to fetch rates; no personal data is sent.</p>
-
-<h2>Data stored on your device</h2>
-<ul>
-<li>Cached exchange rates and rate history (stored locally so the app works offline).</li>
-<li>Your preferences: favorite currency pairs, default currencies, decimal precision and theme.</li>
-</ul>
-<p>All of this data remains on your device and is removed automatically when the app is uninstalled. We never upload it.</p>
-
-<h2>Permissions</h2>
-<ul>
-<li><strong>Internet / network state</strong> — used solely to refresh exchange rates.</li>
-<li><strong>Boot completed / wake lock / foreground service</strong> — used by the optional background scheduler to keep cached rates current; no data leaves the device beyond the rate requests described above.</li>
-</ul>
-
-<h2>Children</h2>
-<p>The app is not directed at children under 13 and does not knowingly collect any data from anyone.</p>
-
-<h2>Financial note</h2>
-<p>Cointrip is an informational calculator only. It does not execute currency exchange, payments, transfers, or any financial transaction. Displayed rates are indicative reference rates and may differ from rates offered by banks, exchange kiosks or card issuers.</p>
-
-<h2>Changes</h2>
-<p>If this policy changes, the updated version with a new effective date will be published at this URL.</p>
-
-<h2>Contact</h2>
-<p>Questions about this policy: <a href="mailto:support@easygo.app">support@easygo.app</a> (replace with your support address before publishing).</p>
-
-<div class="lang">
-<h2>中文摘要</h2>
-<p>Cointrip 不收集、不存储、不分享任何个人数据，无需注册，不含广告与追踪 SDK。应用仅向 Frankfurter（欧洲央行公开汇率数据源）请求汇率数据；汇率缓存与偏好（收藏货币对、默认货币、精度、主题）仅保存在本机，卸载后即删除。权限仅用于刷新汇率及后台更新缓存。Cointrip 仅提供参考换算，不执行任何换汇或支付交易。联系：support@easygo.app。</p>
+<a class="skip-link" href="#content">
+  <span data-panel="en">Skip to content</span><span data-panel="zh" hidden>跳到正文</span><span data-panel="ja" hidden>本文書の内容へスキップ</span>
+</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top"><span class="brand-mark">C</span><span>Cointrip</span></a>
+    <nav class="lang-switch" id="langSwitch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true" title="English">EN</button>
+      <button type="button" data-lang="zh" aria-pressed="false" title="简体中文">中文</button>
+      <button type="button" data-lang="ja" aria-pressed="false" title="日本語">日本語</button>
+    </nav>
+  </div>
+</header>
+<div class="hero" id="top">
+  <p class="sub"><span data-panel="en">Privacy Policy</span><span data-panel="zh" hidden>隐私政策</span><span data-panel="ja" hidden>プライバシーポリシー</span></p>
+  <p class="hero-meta">
+    <span data-panel="en">Effective date: <time datetime="2026-10-21">21 October 2026</time></span>
+    <span data-panel="zh" hidden>生效日期：<time datetime="2026-10-21">2026年10月21日</time></span>
+    <span data-panel="ja" hidden>発効日：<time datetime="2026-10-21">2026年10月21日</time></span>
+  </p>
 </div>
-</section>
+<main id="content">
+<!-- ===================== English ===================== -->
+<article class="card" lang="en" data-panel="en">
+  <h2>Overview</h2>
+  <p>Cointrip (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;the app&rdquo;) is an offline-capable travel currency converter. Privacy is built in by design: the app does <strong>not</strong> require an account and does <strong>not</strong> collect personal or sensitive user data.</p>
+
+  <h2>Data We Collect</h2>
+  <p><strong>None.</strong> We do not collect, transmit, store, or share personal information, device identifiers, financial information, location, contacts, photos, or usage analytics. The app contains no third-party advertising SDKs and no tracking pixels.</p>
+
+  <h2>Network Requests</h2>
+  <p>The app sends requests to <code>https://api.frankfurter.dev</code> to download public exchange-rate reference data published by the European Central Bank. Requests contain only the currency codes and dates needed to fetch the rates; no personal data is sent.</p>
+
+  <h2>Data Stored on Your Device</h2>
+  <ul>
+    <li>Cached exchange rates and rate history, stored locally so the app works offline.</li>
+    <li>Your preferences: favorite currency pairs, default currencies, decimal precision, and theme.</li>
+  </ul>
+  <p>All of this data stays on your device and is removed automatically when the app is uninstalled. We never upload it.</p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Internet / network state</strong> &mdash; used solely to refresh exchange rates.</li>
+    <li><strong>Boot completed / wake lock / foreground service</strong> &mdash; used by the optional background scheduler to keep cached rates current. Beyond the rate requests described above, no data leaves your device.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>The app is not directed at children under 13 and does not knowingly collect data from anyone.</p>
+
+  <h2>Financial Note</h2>
+  <p>Cointrip is an informational calculator only. It does not perform currency exchange, payments, transfers, or any other financial transaction. Displayed rates are indicative reference rates and may differ from the rates offered by banks, exchange kiosks, or card issuers.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy changes, the updated version with a new effective date will be published at this URL.</p>
+
+</article>
+
+<!-- ===================== 简体中文 ===================== -->
+<article class="card" lang="zh" data-panel="zh" hidden>
+  <h2>概述</h2>
+  <p>Cointrip（以下简称&ldquo;本应用&rdquo;）是一款可离线使用的旅行货币换算应用。隐私保护内置于产品设计之中：本应用<strong>无需</strong>注册账号，也<strong>不会</strong>收集任何个人或敏感用户数据。</p>
+
+  <h2>我们收集的数据</h2>
+  <p><strong>无。</strong>我们不会收集、传输、存储或分享任何个人信息、设备标识符、财务信息、位置、联系人、照片或使用分析数据。应用内不包含任何第三方广告 SDK，也没有任何跟踪像素。</p>
+
+  <h2>网络请求</h2>
+  <p>本应用会向 <code>https://api.frankfurter.dev</code> 发送请求，以下载欧洲中央银行发布的公开汇率参考数据。请求仅包含获取汇率所需的货币代码与日期，不会发送任何个人数据。</p>
+
+  <h2>存储在您设备上的数据</h2>
+  <ul>
+    <li>缓存的汇率与历史汇率，存储于本地，用于离线使用。</li>
+    <li>您的偏好设置：收藏的货币对、默认货币、小数精度与主题。</li>
+  </ul>
+  <p>所有这些数据仅保存在您的设备本地，卸载应用时会被自动删除，我们绝不会将其上传。</p>
+
+  <h2>权限说明</h2>
+  <ul>
+    <li><strong>互联网 / 网络状态</strong>&mdash;&mdash;仅用于刷新汇率。</li>
+    <li><strong>开机完成 / 唤醒锁定 / 前台服务</strong>&mdash;&mdash;供可选的后台调度功能保持缓存汇率为最新；除上述汇率请求外，不会有任何数据离开您的设备。</li>
+  </ul>
+
+  <h2>儿童</h2>
+  <p>本应用不面向 13 岁以下儿童，亦不会在知情的情况下收集任何人的数据。</p>
+
+  <h2>金融提示</h2>
+  <p>Cointrip 仅为信息参考类计算工具，不办理换汇、支付、转账或任何金融交易。所显示的汇率为指示性参考汇率，可能与银行、兑换网点或发卡机构提供的汇率存在差异。</p>
+
+  <h2>本政策的变更</h2>
+  <p>如本政策发生变更，载有新生效日期的更新版本将在此 URL 公布。</p>
+
+</article>
+
+<!-- ===================== 日本語 ===================== -->
+<article class="card" lang="ja" data-panel="ja" hidden>
+  <h2>概要</h2>
+  <p>Cointrip（以下「本アプリ」）は、オフラインでも利用できる旅行向け通貨換算アプリです。プライバシーは設計に組み込まれており、アカウント登録は<strong>不要</strong>で、個人データや機密性の高いユーザーデータを収集することは<strong>ありません</strong>。</p>
+
+  <h2>収集するデータ</h2>
+  <p><strong>ありません。</strong>個人情報、端末識別子、財務情報、位置情報、連絡先、写真、利用状況分析データを収集・送信・保存・共有することは一切ありません。サードパーティの広告 SDK やトラッキングピクセルも本アプリには含まれていません。</p>
+
+  <h2>ネットワークリクエスト</h2>
+  <p>本アプリは、欧州中央銀行が公開する為替レートの参照データを取得するため、<code>https://api.frankfurter.dev</code> にリクエストを送信します。リクエストにはレートの取得に必要な通貨コードと日付のみが含まれ、個人データは一切送信されません。</p>
+
+  <h2>端末に保存されるデータ</h2>
+  <ul>
+    <li>キャッシュされた為替レートとその履歴（オフライン利用のため、端末にローカル保存されます）。</li>
+    <li>ユーザー設定：お気に入りの通貨ペア、デフォルト通貨、小数点以下の桁数、テーマ。</li>
+  </ul>
+  <p>これらのデータはすべて端末内にのみ保存され、アプリをアンインストールすると自動的に削除されます。当社がこれらのデータをアップロードすることはありません。</p>
+
+  <h2>権限</h2>
+  <ul>
+    <li><strong>インターネット / ネットワーク状態</strong> &mdash; 為替レートの更新にのみ使用します。</li>
+    <li><strong>起動完了 / Wake Lock / フォアグラウンドサービス</strong> &mdash; 任意のバックグラウンド更新機能がキャッシュ済みレートを最新に保つために使用します。上記のレート取得リクエストを除き、端末からデータが外部へ送信されることはありません。</li>
+  </ul>
+
+  <h2>子どもについて</h2>
+  <p>本アプリは 13 歳未満の子どもを対象としておらず、いかなる人物からもデータを意図的に収集することはありません。</p>
+
+  <h2>金融に関する注意事項</h2>
+  <p>Cointrip は情報提供のみを目的とした計算ツールです。両替、支払い、送金その他いかなる金融取引も実行しません。表示されるレートは参考値であり、銀行、両替所、カード発行会社が提供するレートと異なる場合があります。</p>
+
+  <h2>本ポリシーの変更</h2>
+  <p>本ポリシーを変更する場合、新しい発効日を記載した更新版をこの URL で公開します。</p>
+
+
+</article>
 </main>
-<footer>Cointrip · com.easygo.cointrip · © 2026 EasyGo</footer>
+<footer>
+  <div>Cointrip &middot; &copy; 2026</div>
+</footer>
+
+<!-- TODO: replace support@easygo.app with the real support address before publishing -->
+<noscript><style>[data-panel="zh"],[data-panel="ja"]{display:block !important}</style></noscript>
+<script>
+(function () {
+  var LANGS = ['en', 'zh', 'ja'];
+  var META = {
+    en: {
+      title: 'Cointrip — Privacy Policy',
+      desc: 'Cointrip does not collect personal or sensitive user data. Read how the offline-capable travel currency converter handles network requests, on-device storage, and permissions.',
+      label: 'Language'
+    },
+    zh: {
+      title: 'Cointrip — 隐私政策',
+      desc: 'Cointrip 不收集任何个人或敏感用户数据。了解这款可离线使用的旅行货币换算应用如何处理网络请求、本地存储与权限。',
+      label: '语言切换'
+    },
+    ja: {
+      title: 'Cointrip — プライバシーポリシー',
+      desc: 'Cointrip は個人データや機密データを収集しません。オフライン対応の旅行向け通貨換算アプリによるネットワークリクエスト、端末内保存、権限の取り扱いについて説明します。',
+      label: '言語切替'
+    }
+  };
+  var STORE_KEY = 'cointrip-privacy-lang';
+  var nodes = document.querySelectorAll('[data-panel]');
+  var buttons = document.querySelectorAll('#langSwitch [data-lang]');
+  var switcher = document.getElementById('langSwitch');
+  var descTag = document.querySelector('meta[name="description"]');
+
+  function store(lang) {
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+  }
+  function loadStored() {
+    try { return localStorage.getItem(STORE_KEY); } catch (e) { return null; }
+  }
+
+  function apply(lang, syncHash) {
+    if (LANGS.indexOf(lang) === -1) lang = 'en';
+    nodes.forEach(function (node) {
+      node.hidden = node.getAttribute('data-panel') !== lang;
+    });
+    buttons.forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+    document.title = META[lang].title;
+    if (descTag) descTag.setAttribute('content', META[lang].desc);
+    switcher.setAttribute('aria-label', META[lang].label);
+    store(lang);
+    if (syncHash !== false && window.location.hash !== '#' + lang) {
+      window.history.replaceState(null, '', '#' + lang);
+    }
+  }
+
+  function initialLang() {
+    var hashLang = (window.location.hash || '').replace('#', '');
+    if (LANGS.indexOf(hashLang) !== -1) return hashLang;
+    var saved = loadStored();
+    if (saved && LANGS.indexOf(saved) !== -1) return saved;
+    var nav = (navigator.language || 'en').toLowerCase();
+    if (nav.indexOf('zh') === 0) return 'zh';
+    if (nav.indexOf('ja') === 0) return 'ja';
+    return 'en';
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      apply(btn.getAttribute('data-lang'));
+    });
+  });
+  window.addEventListener('hashchange', function () {
+    var hashLang = (window.location.hash || '').replace('#', '');
+    if (LANGS.indexOf(hashLang) !== -1) apply(hashLang, false);
+  });
+
+  apply(initialLang(), false);
+})();
+</script>
+</body>
+</html>
 </body>
 </html>
